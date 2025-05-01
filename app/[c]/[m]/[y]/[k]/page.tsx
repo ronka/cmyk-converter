@@ -1,27 +1,29 @@
-"use client";
+import { Metadata } from "next";
+import { CmykPageClient } from "@/components/cmyk-page-client";
 
-import { Header } from "@/components/header";
-import { ColorConverter } from "@/components/color-converter";
-import { Footer } from "@/components/footer";
-import { useParams } from "next/navigation";
+// Static metadata - no params access needed
+export const metadata: Metadata = {
+  title: "CMYK to Pantone & RGB Converter",
+  description:
+    "Convert CMYK colors to their closest Pantone matches and RGB equivalents. Online CMYK color conversion tool.",
+  openGraph: {
+    title: "CMYK to Pantone & RGB Converter",
+    description:
+      "Convert CMYK colors to their closest Pantone matches and RGB equivalents.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CMYK to Pantone & RGB Converter",
+    description:
+      "Convert CMYK colors to their closest Pantone matches and RGB equivalents.",
+  },
+};
 
-export default function CMYKPage() {
-  const params = useParams();
+// Make the page component async and pass no props to the client component
+export default async function CMYKPage() {
+  // No params handling at all in the server component
+  // Let the client component handle all parameter extraction
 
-  const cmykValues = {
-    c: Math.min(100, Math.max(0, parseInt(params.c as string, 10) || 0)),
-    m: Math.min(100, Math.max(0, parseInt(params.m as string, 10) || 0)),
-    y: Math.min(100, Math.max(0, parseInt(params.y as string, 10) || 0)),
-    k: Math.min(100, Math.max(0, parseInt(params.k as string, 10) || 0)),
-  };
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1 container max-w-5xl mx-auto px-4 py-8">
-        <ColorConverter initialColor={cmykValues} />
-      </main>
-      <Footer />
-    </div>
-  );
+  return <CmykPageClient />;
 }
