@@ -38,24 +38,35 @@ export function Header() {
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0 max-w-5xl mx-auto px-4">
         <div className="flex gap-2 items-center text-primary">
           <Palette className="h-6 w-6" />
-          <span className="font-bold text-lg hidden md:block">CMYK to Pantone</span>
+          <span className="font-bold text-lg hidden md:block">
+            CMYK Converter
+          </span>
         </div>
-        
+
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="hidden md:flex items-center space-x-4">
-            <a href="#" className="text-sm font-medium transition-colors hover:text-primary">
+            <a
+              href="#"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Converter
             </a>
-            <a href="#" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+            <a
+              href="#"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
               About Pantone
             </a>
-            <a href="#" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+            <a
+              href="#"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
               Help
             </a>
           </nav>
-          
+
           <ModeToggle />
-          
+
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -65,19 +76,28 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle>CMYK to Pantone</SheetTitle>
+                <SheetTitle>CMYK Converter</SheetTitle>
                 <SheetDescription>
                   Convert CMYK colors to their closest Pantone match
                 </SheetDescription>
               </SheetHeader>
               <nav className="flex flex-col gap-4 mt-6">
-                <a href="#" className="text-sm font-medium transition-colors hover:text-primary px-2 py-1">
+                <a
+                  href="#"
+                  className="text-sm font-medium transition-colors hover:text-primary px-2 py-1"
+                >
                   Converter
                 </a>
-                <a href="#" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary px-2 py-1">
+                <a
+                  href="#"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary px-2 py-1"
+                >
                   About Pantone
                 </a>
-                <a href="#" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary px-2 py-1">
+                <a
+                  href="#"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary px-2 py-1"
+                >
                   Help
                 </a>
               </nav>
