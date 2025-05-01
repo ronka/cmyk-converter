@@ -29,15 +29,19 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-interface ColorConverterProps {
-  initialColor?: CMYK;
-}
-
 type ColorFormat = "cmyk" | "rgb" | "pantone";
 
-export function ColorConverter({ initialColor }: ColorConverterProps) {
-  const router = useRouter();
+export function ColorConverter() {
   const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const initialColor = {
+    c: Math.min(100, Math.max(0, parseInt(searchParams.get("c") || "0", 10))),
+    m: Math.min(100, Math.max(0, parseInt(searchParams.get("m") || "0", 10))),
+    y: Math.min(100, Math.max(0, parseInt(searchParams.get("y") || "0", 10))),
+    k: Math.min(100, Math.max(0, parseInt(searchParams.get("k") || "0", 10))),
+  };
+
   const [cmykColor, setCmykColor] = useState<CMYK>(
     initialColor || { c: 0, m: 0, y: 0, k: 0 }
   );
@@ -47,14 +51,8 @@ export function ColorConverter({ initialColor }: ColorConverterProps) {
     [],
     isValidCmykArray
   );
-  const [outputFormat, setOutputFormat] = useState<ColorFormat>("cmyk");
+  const [outputFormat, setOutputFormat] = useState<ColorFormat>("rgb");
   const { toast } = useToast();
-
-  useEffect(() => {
-    if (initialColor) {
-      setCmykColor(initialColor);
-    }
-  }, [initialColor]);
 
   useEffect(() => {
     try {
