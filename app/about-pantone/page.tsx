@@ -161,7 +161,7 @@ export default function AboutPantonePage() {
                 color.
               </p>
 
-              <div className="my-6 p-5 border border-blue-200 rounded-lg bg-blue-50 text-blue-800">
+              <div className="my-6 p-5 border rounded-lg bg-card text-card-foreground">
                 <h4 className="font-bold mb-2">
                   Why use our CMYK to Pantone converter?
                 </h4>
@@ -170,7 +170,7 @@ export default function AboutPantonePage() {
                   challenging. Our{" "}
                   <Link
                     href="/"
-                    className="text-blue-600 hover:underline font-medium"
+                    className="text-primary hover:underline font-medium"
                   >
                     CMYK to Pantone converter
                   </Link>{" "}
@@ -272,7 +272,7 @@ export default function AboutPantonePage() {
                 provide access to Pantone color libraries and conversion tools.
               </p>
 
-              <div className="my-8 p-6 bg-amber-50 border border-amber-200 rounded-lg">
+              <div className="my-8 p-6 bg-muted border rounded-lg">
                 <h3 className="text-xl font-semibold mb-3">Did You Know?</h3>
                 <p>
                   Pantone's physical color guides need to be replaced
@@ -307,7 +307,7 @@ export default function AboutPantonePage() {
                 Our{" "}
                 <Link
                   href="/"
-                  className="text-blue-600 hover:underline font-medium"
+                  className="text-primary hover:underline font-medium"
                 >
                   CMYK to Pantone converter tool
                 </Link>{" "}
@@ -395,7 +395,7 @@ export default function AboutPantonePage() {
           </article>
 
           {/* Call to Action */}
-          <div className="mt-16 bg-gradient-to-r from-purple-100 to-blue-100 rounded-xl p-8 text-center">
+          <div className="mt-16 bg-muted/50 rounded-xl p-8 text-center border">
             <h2 className="text-2xl font-bold mb-4">
               Ready to Convert Your CMYK Colors to Pantone?
             </h2>

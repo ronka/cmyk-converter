@@ -378,7 +378,7 @@ export default function HelpPage() {
           </div>
 
           {/* Call to Action */}
-          <div className="mt-16 bg-gradient-to-r from-purple-100 to-blue-100 rounded-xl p-8 text-center">
+          <div className="mt-16 bg-muted/50 rounded-xl p-8 text-center border">
             <h2 className="text-2xl font-bold mb-4">
               Ready to Convert CMYK Colors?
             </h2>
