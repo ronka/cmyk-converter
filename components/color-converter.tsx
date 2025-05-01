@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import debounce from "lodash.debounce";
 import { CmykColorInput } from "@/components/cmyk-color-input";
 import { PantoneResults } from "@/components/pantone-results";
 import { ColorHistory } from "@/components/color-history";
@@ -48,6 +49,16 @@ export function ColorConverter({ initialColor }: ColorConverterProps) {
   const [outputFormat, setOutputFormat] = useState<ColorFormat>("rgb");
   const { toast } = useToast();
 
+  const debouncedUpdatePath = useCallback(
+    debounce((newColor: CMYK) => {
+      router.replace(
+        `/${newColor.c}/${newColor.m}/${newColor.y}/${newColor.k}`,
+        { scroll: false }
+      );
+    }, 300),
+    [router]
+  );
+
   useEffect(() => {
     try {
       const matches = cmykToPantone(initialColor);
@@ -73,6 +84,7 @@ export function ColorConverter({ initialColor }: ColorConverterProps) {
         variant: "destructive",
       });
     }
+    debouncedUpdatePath(newColor);
   };
 
   const saveToHistory = () => {
