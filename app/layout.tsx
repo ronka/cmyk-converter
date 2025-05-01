@@ -18,6 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="https://fav.farm/🎨" />
+      </head>
+
       <body className={inter.className}>
         <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           {children}
