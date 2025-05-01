@@ -61,7 +61,7 @@ export function Header() {
               About Pantone
             </Link>
             <Link
-              href="#"
+              href="/help"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               Help
@@ -98,7 +98,7 @@ export function Header() {
                   About Pantone
                 </Link>
                 <Link
-                  href="#"
+                  href="/help"
                   className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary px-2 py-1"
                 >
                   Help
