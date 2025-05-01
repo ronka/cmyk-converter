@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 
 export default function CMYKPage() {
   const params = useParams();
-  
+
   const cmykValues = {
     c: Math.min(100, Math.max(0, parseInt(params.c as string, 10) || 0)),
     m: Math.min(100, Math.max(0, parseInt(params.m as string, 10) || 0)),

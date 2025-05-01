@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { CmykColorInput } from "@/components/cmyk-color-input";
 import { PantoneResults } from "@/components/pantone-results";
 import { ColorHistory } from "@/components/color-history";
@@ -31,20 +31,14 @@ import {
 
 type ColorFormat = "cmyk" | "rgb" | "pantone";
 
-export function ColorConverter() {
-  const searchParams = useSearchParams();
+interface ColorConverterProps {
+  initialColor: CMYK;
+}
+
+export function ColorConverter({ initialColor }: ColorConverterProps) {
   const router = useRouter();
 
-  const initialColor = {
-    c: Math.min(100, Math.max(0, parseInt(searchParams.get("c") || "0", 10))),
-    m: Math.min(100, Math.max(0, parseInt(searchParams.get("m") || "0", 10))),
-    y: Math.min(100, Math.max(0, parseInt(searchParams.get("y") || "0", 10))),
-    k: Math.min(100, Math.max(0, parseInt(searchParams.get("k") || "0", 10))),
-  };
-
-  const [cmykColor, setCmykColor] = useState<CMYK>(
-    initialColor || { c: 0, m: 0, y: 0, k: 0 }
-  );
+  const [cmykColor, setCmykColor] = useState<CMYK>(initialColor);
   const [pantoneMatches, setPantoneMatches] = useState<PantoneMatch[]>([]);
   const [colorHistory, setColorHistory] = usePersistentState<CMYK[]>(
     "colorHistory",
@@ -56,16 +50,22 @@ export function ColorConverter() {
 
   useEffect(() => {
     try {
-      const matches = cmykToPantone(cmykColor);
+      const matches = cmykToPantone(initialColor);
       setPantoneMatches(matches);
+    } catch (error) {
+      toast({
+        title: "Error finding initial Pantone matches",
+        description: "There was a problem converting the initial CMYK color.",
+        variant: "destructive",
+      });
+    }
+  }, [initialColor, toast]);
 
-      // Update URL with query parameters
-      const params = new URLSearchParams(searchParams.toString());
-      params.set("c", cmykColor.c.toString());
-      params.set("m", cmykColor.m.toString());
-      params.set("y", cmykColor.y.toString());
-      params.set("k", cmykColor.k.toString());
-      router.push(`/?${params.toString()}`);
+  const handleColorChange = (newColor: CMYK) => {
+    setCmykColor(newColor);
+    try {
+      const matches = cmykToPantone(newColor);
+      setPantoneMatches(matches);
     } catch (error) {
       toast({
         title: "Error finding Pantone matches",
@@ -73,10 +73,6 @@ export function ColorConverter() {
         variant: "destructive",
       });
     }
-  }, [cmykColor, router, searchParams, toast]);
-
-  const handleColorChange = (newColor: CMYK) => {
-    setCmykColor(newColor);
   };
 
   const saveToHistory = () => {
