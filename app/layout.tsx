@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import DynamicHead from "@/components/DynamicHead";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +25,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="https://fav.farm/🎨" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen flex flex-col`}>
         <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
           <DynamicHead />
-          {children}
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
           <Toaster />
           <Analytics />
         </ThemeProvider>

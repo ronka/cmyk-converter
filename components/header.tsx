@@ -55,6 +55,24 @@ export function Header() {
               Converter
             </Link>
             <Link
+              href="/what-is-cmyk"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              What is CMYK?
+            </Link>
+            <Link
+              href="/cmyk-vs-rgb"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              CMYK vs. RGB
+            </Link>
+            <Link
+              href="/how-to-convert-to-cmyk"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              How to Convert
+            </Link>
+            <Link
               href="/about-pantone"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
@@ -90,6 +108,24 @@ export function Header() {
                   className="text-sm font-medium transition-colors hover:text-primary px-2 py-1"
                 >
                   Converter
+                </Link>
+                <Link
+                  href="/what-is-cmyk"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary px-2 py-1"
+                >
+                  What is CMYK?
+                </Link>
+                <Link
+                  href="/cmyk-vs-rgb"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary px-2 py-1"
+                >
+                  CMYK vs. RGB
+                </Link>
+                <Link
+                  href="/how-to-convert-to-cmyk"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary px-2 py-1"
+                >
+                  How to Convert
                 </Link>
                 <Link
                   href="/about-pantone"

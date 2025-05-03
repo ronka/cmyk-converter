@@ -38,7 +38,6 @@ export const metadata: Metadata = {
 export default function HelpPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Breadcrumb navigation */}
         <div className="bg-muted py-2">
@@ -394,7 +393,6 @@ export default function HelpPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
