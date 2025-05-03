@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import DynamicHead from "@/components/DynamicHead";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
           <Toaster />
           <Analytics />
         </ThemeProvider>
+        <GoogleAnalytics gaId="G-QH8RZQ7H6S" />
       </body>
     </html>
   );
