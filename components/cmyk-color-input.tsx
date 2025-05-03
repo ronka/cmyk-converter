@@ -34,7 +34,7 @@ export function CmykColorInput({ color, onChange }: CmykColorInputProps) {
       y: [color.y],
       k: [color.k],
     });
-    
+
     setInputValues({
       c: color.c.toString(),
       m: color.m.toString(),
@@ -45,19 +45,19 @@ export function CmykColorInput({ color, onChange }: CmykColorInputProps) {
 
   const handleSliderChange = (key: keyof CMYK, value: number[]) => {
     const numberValue = value[0];
-    
+
     // Update slider state
     setSliderValues((prev) => ({
       ...prev,
       [key]: value,
     }));
-    
+
     // Update input value state
     setInputValues((prev) => ({
       ...prev,
       [key]: numberValue.toString(),
     }));
-    
+
     // Notify parent component of color change
     onChange({
       ...color,
@@ -71,16 +71,16 @@ export function CmykColorInput({ color, onChange }: CmykColorInputProps) {
       ...prev,
       [key]: value,
     }));
-    
+
     // Only update slider and notify parent if we have a valid number
     const numberValue = parseInt(value, 10);
-    
+
     if (!isNaN(numberValue) && numberValue >= 0 && numberValue <= 100) {
       setSliderValues((prev) => ({
         ...prev,
         [key]: [numberValue],
       }));
-      
+
       onChange({
         ...color,
         [key]: numberValue,
@@ -91,23 +91,23 @@ export function CmykColorInput({ color, onChange }: CmykColorInputProps) {
   const handleInputBlur = (key: keyof CMYK) => {
     const value = inputValues[key];
     let numberValue = parseInt(value, 10);
-    
+
     // Sanitize input on blur
     if (isNaN(numberValue)) numberValue = 0;
     if (numberValue < 0) numberValue = 0;
     if (numberValue > 100) numberValue = 100;
-    
+
     // Update both states with sanitized value
     setInputValues((prev) => ({
       ...prev,
       [key]: numberValue.toString(),
     }));
-    
+
     setSliderValues((prev) => ({
       ...prev,
       [key]: [numberValue],
     }));
-    
+
     onChange({
       ...color,
       [key]: numberValue,
@@ -138,12 +138,10 @@ export function CmykColorInput({ color, onChange }: CmykColorInputProps) {
           max={100}
           step={1}
           onValueChange={(value) => handleSliderChange("c", value)}
-          className={cn("", {
-            "slider-cyan": true
-          })}
+          className="slider-cyan"
         />
       </div>
-      
+
       {/* Magenta */}
       <div className="space-y-2">
         <div className="flex justify-between items-center">
@@ -166,12 +164,10 @@ export function CmykColorInput({ color, onChange }: CmykColorInputProps) {
           max={100}
           step={1}
           onValueChange={(value) => handleSliderChange("m", value)}
-          className={cn("", {
-            "slider-magenta": true
-          })}
+          className="slider-magenta"
         />
       </div>
-      
+
       {/* Yellow */}
       <div className="space-y-2">
         <div className="flex justify-between items-center">
@@ -194,12 +190,10 @@ export function CmykColorInput({ color, onChange }: CmykColorInputProps) {
           max={100}
           step={1}
           onValueChange={(value) => handleSliderChange("y", value)}
-          className={cn("", {
-            "slider-yellow": true
-          })}
+          className="slider-yellow"
         />
       </div>
-      
+
       {/* Black */}
       <div className="space-y-2">
         <div className="flex justify-between items-center">
@@ -222,9 +216,7 @@ export function CmykColorInput({ color, onChange }: CmykColorInputProps) {
           max={100}
           step={1}
           onValueChange={(value) => handleSliderChange("k", value)}
-          className={cn("", {
-            "slider-black": true
-          })}
+          className="slider-black"
         />
       </div>
     </div>

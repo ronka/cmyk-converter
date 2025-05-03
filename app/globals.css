@@ -83,7 +83,7 @@
 
 /* Custom slider styles */
 .slider-cyan [data-orientation=horizontal] {
-  @apply h-2 bg-cyan-100;
+  @apply bg-cyan-100;
 }
 
 .slider-cyan [data-orientation=horizontal] [data-state] {
@@ -91,7 +91,7 @@
 }
 
 .slider-magenta [data-orientation=horizontal] {
-  @apply h-2 bg-pink-100;
+  @apply bg-pink-100;
 }
 
 .slider-magenta [data-orientation=horizontal] [data-state] {
@@ -99,7 +99,7 @@
 }
 
 .slider-yellow [data-orientation=horizontal] {
-  @apply h-2 bg-yellow-100;
+  @apply bg-yellow-100;
 }
 
 .slider-yellow [data-orientation=horizontal] [data-state] {
@@ -107,7 +107,7 @@
 }
 
 .slider-black [data-orientation=horizontal] {
-  @apply h-2 bg-gray-200;
+  @apply bg-gray-200;
 }
 
 .slider-black [data-orientation=horizontal] [data-state] {
