@@ -24,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-6886948202740578" />
         <link rel="icon" href="https://fav.farm/🎨" />
       </head>
       <body className={`${inter.className} min-h-screen flex flex-col`}>
